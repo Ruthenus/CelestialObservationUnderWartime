@@ -1,4 +1,4 @@
-#include <windows.h>
+п»ї#include <windows.h>
 #include <iostream>
 #include <string>   // getline()
 
@@ -8,28 +8,28 @@ using namespace std;
 class Telescope
 {
 private:
-    char* brand = nullptr;           // покажчик на бренд
-    char* model = nullptr;           // покажчик на модель
-    char* opticalDesign = nullptr;   // покажчик на оптичну конструкцію
-    char* aperture = nullptr;        // покажчик на діаметр об'єктива
-    char* focalLength = nullptr;     // покажчик на фокусну відстань
-    char* mountType = nullptr;       // покажчик на тип монтування
-    char* eyepiece = nullptr;        // покажчик на опис окуляра
-    char* filter = nullptr;          // покажчик на світлофільтр
-    char* skyObject = nullptr;       // покажчик на небесне тіло
-    bool isAimed;    // чи наведено телескоп на об'єкт?
-    bool isFocused;  // чи виконано фокусування?
+    char* brand = nullptr;           // РїРѕРєР°Р¶С‡РёРє РЅР° Р±СЂРµРЅРґ
+    char* model = nullptr;           // РїРѕРєР°Р¶С‡РёРє РЅР° РјРѕРґРµР»СЊ
+    char* opticalDesign = nullptr;   // РїРѕРєР°Р¶С‡РёРє РЅР° РѕРїС‚РёС‡РЅСѓ РєРѕРЅСЃС‚СЂСѓРєС†С–СЋ
+    char* aperture = nullptr;        // РїРѕРєР°Р¶С‡РёРє РЅР° РґС–Р°РјРµС‚СЂ РѕР±'С”РєС‚РёРІР°
+    char* focalLength = nullptr;     // РїРѕРєР°Р¶С‡РёРє РЅР° С„РѕРєСѓСЃРЅСѓ РІС–РґСЃС‚Р°РЅСЊ
+    char* mountType = nullptr;       // РїРѕРєР°Р¶С‡РёРє РЅР° С‚РёРї РјРѕРЅС‚СѓРІР°РЅРЅСЏ
+    char* eyepiece = nullptr;        // РїРѕРєР°Р¶С‡РёРє РЅР° РѕРїРёСЃ РѕРєСѓР»СЏСЂР°
+    char* filter = nullptr;          // РїРѕРєР°Р¶С‡РёРє РЅР° СЃРІС–С‚Р»РѕС„С–Р»СЊС‚СЂ
+    char* skyObject = nullptr;       // РїРѕРєР°Р¶С‡РёРє РЅР° РЅРµР±РµСЃРЅРµ С‚С–Р»Рѕ
+    bool isAimed;    // С‡Рё РЅР°РІРµРґРµРЅРѕ С‚РµР»РµСЃРєРѕРї РЅР° РѕР±'С”РєС‚?
+    bool isFocused;  // С‡Рё РІРёРєРѕРЅР°РЅРѕ С„РѕРєСѓСЃСѓРІР°РЅРЅСЏ?
 
-    // Приватний метод ініціалізації для делегування
+    // РџСЂРёРІР°С‚РЅРёР№ РјРµС‚РѕРґ С–РЅС–С†С–Р°Р»С–Р·Р°С†С–С— РґР»СЏ РґРµР»РµРіСѓРІР°РЅРЅСЏ
     void InitTelescope(const string& brand = "Celestron",
         const string& model = "PowerSeeker 70 AZ",
-        const string& opticalDesign = "Рефрактор",
-        const string& aperture = "70 мм",
-        const string& focalLength = "70 см",
-        const string& mountType = "Азимутальне",
-        const string& eyepiece = "20 мм (35x), 1,25\"",
-        const string& filter = "Відсутній",
-        const string& skyObject = "Місяць")
+        const string& opticalDesign = "Р РµС„СЂР°РєС‚РѕСЂ",
+        const string& aperture = "70 РјРј",
+        const string& focalLength = "70 СЃРј",
+        const string& mountType = "РђР·РёРјСѓС‚Р°Р»СЊРЅРµ",
+        const string& eyepiece = "20 РјРј (35x), 1,25\"",
+        const string& filter = "Р’С–РґСЃСѓС‚РЅС–Р№",
+        const string& skyObject = "РњС–СЃСЏС†СЊ")
     {
         this->brand = new char[brand.length() + 1];
         // https://en.cppreference.com/w/c/string/byte/strcpy
@@ -68,14 +68,14 @@ private:
 
 public:
 
-    // Конструктор за замовчуванням
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј
     Telescope()
     {
         InitTelescope();
     }
 
 
-    // Конструктор із параметрами
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ С–Р· РїР°СЂР°РјРµС‚СЂР°РјРё
     Telescope(const string& brand, const string& model,
         const string& opticalDesign, const string& aperture,
         const string& focalLength, const string& mountType,
@@ -86,7 +86,7 @@ public:
     }
 
 
-    // Конструктор копіювання
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
     Telescope(const Telescope& other)
     {
         InitTelescope(other.brand, other.model, other.opticalDesign,
@@ -97,7 +97,7 @@ public:
     }
 
 
-    // Деструктор
+    // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
     ~Telescope()
     {
         delete[] brand;
@@ -112,11 +112,11 @@ public:
     }
 
 
-    // Сеттери для покажчиків
+    // РЎРµС‚С‚РµСЂРё РґР»СЏ РїРѕРєР°Р¶С‡РёРєС–РІ
 
     void SetBrand(const string& brand)
     {
-        if (brand.empty()) throw string("Бажано зазначити бренд телескопа!");
+        if (brand.empty()) throw string("Р‘Р°Р¶Р°РЅРѕ Р·Р°Р·РЅР°С‡РёС‚Рё Р±СЂРµРЅРґ С‚РµР»РµСЃРєРѕРїР°!");
         delete[] this->brand;
         this->brand = new char[brand.length() + 1];
         strcpy_s(this->brand, brand.length() + 1, brand.c_str());
@@ -124,7 +124,7 @@ public:
 
     void SetModel(const string& model)
     {
-        if (model.empty()) throw string("Бажано зазначити модель телескопа!");
+        if (model.empty()) throw string("Р‘Р°Р¶Р°РЅРѕ Р·Р°Р·РЅР°С‡РёС‚Рё РјРѕРґРµР»СЊ С‚РµР»РµСЃРєРѕРїР°!");
         delete[] this->model;
         this->model = new char[model.length() + 1];
         strcpy_s(this->model, model.length() + 1, model.c_str());
@@ -132,7 +132,7 @@ public:
 
     void SetOpticalDesign(const string& opticalDesign)
     {
-        if (opticalDesign.empty()) throw string("Рефрактор чи рефлектор?..");
+        if (opticalDesign.empty()) throw string("Р РµС„СЂР°РєС‚РѕСЂ С‡Рё СЂРµС„Р»РµРєС‚РѕСЂ?..");
         delete[] this->opticalDesign;
         this->opticalDesign = new char[opticalDesign.length() + 1];
         strcpy_s(this->opticalDesign, opticalDesign.length() + 1,
@@ -142,7 +142,7 @@ public:
     void SetAperture(const string& aperture)
     {
         if (aperture.empty())
-            throw string("Будь ласка, вкажіть діаметр об'єктива в міліметрах");
+            throw string("Р‘СѓРґСЊ Р»Р°СЃРєР°, РІРєР°Р¶С–С‚СЊ РґС–Р°РјРµС‚СЂ РѕР±'С”РєС‚РёРІР° РІ РјС–Р»С–РјРµС‚СЂР°С…");
         delete[] this->aperture;
         this->aperture = new char[aperture.length() + 1];
         strcpy_s(this->aperture, aperture.length() + 1, aperture.c_str());
@@ -151,8 +151,8 @@ public:
     void SetFocalLength(const string& focalLength)
     {
         if (focalLength.empty())
-            throw string("Будь ласка, вкажіть фокусну відстань телескопа "
-                "в міліметрах, сантиметрах, метрах!..");
+            throw string("Р‘СѓРґСЊ Р»Р°СЃРєР°, РІРєР°Р¶С–С‚СЊ С„РѕРєСѓСЃРЅСѓ РІС–РґСЃС‚Р°РЅСЊ С‚РµР»РµСЃРєРѕРїР° "
+                "РІ РјС–Р»С–РјРµС‚СЂР°С…, СЃР°РЅС‚РёРјРµС‚СЂР°С…, РјРµС‚СЂР°С…!..");
         delete[] this->focalLength;
         this->focalLength = new char[focalLength.length() + 1];
         strcpy_s(this->focalLength, focalLength.length() + 1,
@@ -162,8 +162,8 @@ public:
     void SetMountType(const string& mountType)
     {
         if (mountType.empty())
-            throw string("Монтування азимутальне, екваторіальне, Добсона, "
-                "виделкове, екваторіально-азимутальне?..");
+            throw string("РњРѕРЅС‚СѓРІР°РЅРЅСЏ Р°Р·РёРјСѓС‚Р°Р»СЊРЅРµ, РµРєРІР°С‚РѕСЂС–Р°Р»СЊРЅРµ, Р”РѕР±СЃРѕРЅР°, "
+                "РІРёРґРµР»РєРѕРІРµ, РµРєРІР°С‚РѕСЂС–Р°Р»СЊРЅРѕ-Р°Р·РёРјСѓС‚Р°Р»СЊРЅРµ?..");
         delete[] this->mountType;
         this->mountType = new char[mountType.length() + 1];
         strcpy_s(this->mountType, mountType.length() + 1, mountType.c_str());
@@ -171,7 +171,7 @@ public:
 
     void SetEyepiece(const string& eyepiece)
     {
-        if (eyepiece.empty()) throw string("Спробуйте з комплектним окуляром");
+        if (eyepiece.empty()) throw string("РЎРїСЂРѕР±СѓР№С‚Рµ Р· РєРѕРјРїР»РµРєС‚РЅРёРј РѕРєСѓР»СЏСЂРѕРј");
         delete[] this->eyepiece;
         this->eyepiece = new char[eyepiece.length() + 1];
         strcpy_s(this->eyepiece, eyepiece.length() + 1, eyepiece.c_str());
@@ -181,7 +181,7 @@ public:
     void SetterFilter(const string& filter)
     {
         if (filter.empty())
-            throw string("Передивіться свій новий набір світлофільтрів.");
+            throw string("РџРµСЂРµРґРёРІС–С‚СЊСЃСЏ СЃРІС–Р№ РЅРѕРІРёР№ РЅР°Р±С–СЂ СЃРІС–С‚Р»РѕС„С–Р»СЊС‚СЂС–РІ.");
         delete[] this->filter;
         this->filter = new char[filter.length() + 1];
         strcpy_s(this->filter, filter.length() + 1, filter.c_str());
@@ -189,12 +189,12 @@ public:
 
     void SetSkyObject(const string& skyObject)
     {
-        if ((skyObject == "Сонце" || skyObject == "The Sun" ||
-            skyObject == "Sun") && strcmp(this->filter, "Сонячний") != 0)
+        if ((skyObject == "РЎРѕРЅС†Рµ" || skyObject == "The Sun" ||
+            skyObject == "Sun") && strcmp(this->filter, "РЎРѕРЅСЏС‡РЅРёР№") != 0)
             // https://en.cppreference.com/w/c/string/byte/strcmp.html
-            throw string("Ніколи не дивіться на Сонце без спеціального "
-                "сонячного світлофільтра — це дуже небезпечно!"
-                " Найкраще — використовуйте метод проєкції на екран.");
+            throw string("РќС–РєРѕР»Рё РЅРµ РґРёРІС–С‚СЊСЃСЏ РЅР° РЎРѕРЅС†Рµ Р±РµР· СЃРїРµС†С–Р°Р»СЊРЅРѕРіРѕ "
+                "СЃРѕРЅСЏС‡РЅРѕРіРѕ СЃРІС–С‚Р»РѕС„С–Р»СЊС‚СЂР° вЂ” С†Рµ РґСѓР¶Рµ РЅРµР±РµР·РїРµС‡РЅРѕ!"
+                " РќР°Р№РєСЂР°С‰Рµ вЂ” РІРёРєРѕСЂРёСЃС‚РѕРІСѓР№С‚Рµ РјРµС‚РѕРґ РїСЂРѕС”РєС†С–С— РЅР° РµРєСЂР°РЅ.");
         delete[] this->skyObject;
         this->skyObject = new char[skyObject.length() + 1];
         strcpy_s(this->skyObject, skyObject.length() + 1, skyObject.c_str());
@@ -212,7 +212,7 @@ public:
     }
 
 
-    // Геттери для покажчиків
+    // Р“РµС‚С‚РµСЂРё РґР»СЏ РїРѕРєР°Р¶С‡РёРєС–РІ
 
     string GetBrand() const { return string(brand); }
 
@@ -237,41 +237,41 @@ public:
     bool GetIsFocused() const { return this->isFocused; }
 
 
-    // Метод для встановлення характеристик телескопа
+    // РњРµС‚РѕРґ РґР»СЏ РІСЃС‚Р°РЅРѕРІР»РµРЅРЅСЏ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє С‚РµР»РµСЃРєРѕРїР°
     void InputTelescopeData()
     {
         system("cls");
-        cout << "\tАБСТРАГУВАННЯ: ДАВНО НЕ СПОСТЕРІГАВ ЗОРЯНЕ НЕБО\n\n";
+        cout << "\tРђР‘РЎРўР РђР“РЈР’РђРќРќРЇ: Р”РђР’РќРћ РќР• РЎРџРћРЎРўР•Р Р†Р“РђР’ Р—РћР РЇРќР• РќР•Р‘Рћ\n\n";
 
-        string input;  // допоміжна змінна для збереження введеного тексту
+        string input;  // РґРѕРїРѕРјС–Р¶РЅР° Р·РјС–РЅРЅР° РґР»СЏ Р·Р±РµСЂРµР¶РµРЅРЅСЏ РІРІРµРґРµРЅРѕРіРѕ С‚РµРєСЃС‚Сѓ
 
-        cout << "Маєте телескоп? Введіть бренд: ";
+        cout << "РњР°С”С‚Рµ С‚РµР»РµСЃРєРѕРї? Р’РІРµРґС–С‚СЊ Р±СЂРµРЅРґ: ";
         getline(cin, input);
         if (!input.empty()) SetBrand(input);
 
-        cout << "Введіть модель телескопа: ";
+        cout << "Р’РІРµРґС–С‚СЊ РјРѕРґРµР»СЊ С‚РµР»РµСЃРєРѕРїР°: ";
         getline(cin, input);
         if (!input.empty()) SetModel(input);
 
-        cout << "Введіть різновид оптичної конструкції: ";
+        cout << "Р’РІРµРґС–С‚СЊ СЂС–Р·РЅРѕРІРёРґ РѕРїС‚РёС‡РЅРѕС— РєРѕРЅСЃС‚СЂСѓРєС†С–С—: ";
         getline(cin, input);
         if (!input.empty()) SetOpticalDesign(input);
 
-        cout << "Введіть діаметр об'єктива (зазначте одиницю): ";
+        cout << "Р’РІРµРґС–С‚СЊ РґС–Р°РјРµС‚СЂ РѕР±'С”РєС‚РёРІР° (Р·Р°Р·РЅР°С‡С‚Рµ РѕРґРёРЅРёС†СЋ): ";
         getline(cin, input);
         if (!input.empty()) SetAperture(input);
 
-        cout << "Введіть фокусну відстань (зазначте одиницю): ";
+        cout << "Р’РІРµРґС–С‚СЊ С„РѕРєСѓСЃРЅСѓ РІС–РґСЃС‚Р°РЅСЊ (Р·Р°Р·РЅР°С‡С‚Рµ РѕРґРёРЅРёС†СЋ): ";
         getline(cin, input);
         if (!input.empty()) SetFocalLength(input);
 
-        cout << "Введіть тип монтування: ";
+        cout << "Р’РІРµРґС–С‚СЊ С‚РёРї РјРѕРЅС‚СѓРІР°РЅРЅСЏ: ";
         getline(cin, input);
         if (!input.empty()) SetMountType(input);
     }
 
 
-    // Метод для наведення на астрономічний об'єкт
+    // РњРµС‚РѕРґ РґР»СЏ РЅР°РІРµРґРµРЅРЅСЏ РЅР° Р°СЃС‚СЂРѕРЅРѕРјС–С‡РЅРёР№ РѕР±'С”РєС‚
     void AimAtObject(const string& skyObject)
     {
         SetSkyObject(skyObject);
@@ -279,14 +279,14 @@ public:
     }
 
 
-    // Метод для фокусування
+    // РњРµС‚РѕРґ РґР»СЏ С„РѕРєСѓСЃСѓРІР°РЅРЅСЏ
     void FocusTelescope()
     {
         if (this->isAimed) this->isFocused = true;
     }
 
 
-    // Метод для заміни окуляра
+    // РњРµС‚РѕРґ РґР»СЏ Р·Р°РјС–РЅРё РѕРєСѓР»СЏСЂР°
     void ChangeEyepiece(const string& otherEyepiece)
     {
         delete[] this->eyepiece;
@@ -297,7 +297,7 @@ public:
     }
 
 
-    // Метод для встановлення світлофільтра
+    // РњРµС‚РѕРґ РґР»СЏ РІСЃС‚Р°РЅРѕРІР»РµРЅРЅСЏ СЃРІС–С‚Р»РѕС„С–Р»СЊС‚СЂР°
     void SetFilter(const string& newFilter)
     {
         delete[] this->filter;
@@ -306,24 +306,24 @@ public:
     }
 
 
-    // Метод для виведення всієї інформації та стану дій
+    // РњРµС‚РѕРґ РґР»СЏ РІРёРІРµРґРµРЅРЅСЏ РІСЃС–С”С— С–РЅС„РѕСЂРјР°С†С–С— С‚Р° СЃС‚Р°РЅСѓ РґС–Р№
     void PrintInfo(const string& comment) const
     {
         system("cls");
-        cout << "\tПрограма - журнал спостережень зоряного неба\n\n";
-        cout << "Телескоп: " << GetBrand() << " " << GetModel() << "\n";
-        cout << "Оптична конструкція: " << GetOpticalDesign() << "\n";
-        cout << "Діаметр об'єктива: " << GetAperture() << "\n";
-        cout << "Фокусна відстань: " << GetFocalLength() << "\n";
-        cout << "Тип монтування: " << GetMountType() << "\n";
-        cout << "\nОкуляр: " << GetEyepiece() << "\n";
-        cout << "Світлофільтр: " << GetFilter() << "\n";
-        cout << "\nТелескоп " << (GetIsAimed() ? "наведено на " +
+        cout << "\tРџСЂРѕРіСЂР°РјР° - Р¶СѓСЂРЅР°Р» СЃРїРѕСЃС‚РµСЂРµР¶РµРЅСЊ Р·РѕСЂСЏРЅРѕРіРѕ РЅРµР±Р°\n\n";
+        cout << "РўРµР»РµСЃРєРѕРї: " << GetBrand() << " " << GetModel() << "\n";
+        cout << "РћРїС‚РёС‡РЅР° РєРѕРЅСЃС‚СЂСѓРєС†С–СЏ: " << GetOpticalDesign() << "\n";
+        cout << "Р”С–Р°РјРµС‚СЂ РѕР±'С”РєС‚РёРІР°: " << GetAperture() << "\n";
+        cout << "Р¤РѕРєСѓСЃРЅР° РІС–РґСЃС‚Р°РЅСЊ: " << GetFocalLength() << "\n";
+        cout << "РўРёРї РјРѕРЅС‚СѓРІР°РЅРЅСЏ: " << GetMountType() << "\n";
+        cout << "\nРћРєСѓР»СЏСЂ: " << GetEyepiece() << "\n";
+        cout << "РЎРІС–С‚Р»РѕС„С–Р»СЊС‚СЂ: " << GetFilter() << "\n";
+        cout << "\nРўРµР»РµСЃРєРѕРї " << (GetIsAimed() ? "РЅР°РІРµРґРµРЅРѕ РЅР° " +
             GetSkyObject() + "." :
-            "ще не наведено, скористайтесь шукачем!") << "\n";
-        cout << "Фокусування " << (GetIsFocused() ? "виконано!" :
-            "ще не виконано!") << "\n";
-        cout << "\n\nКОМЕНТАР: " << comment << "\n";
+            "С‰Рµ РЅРµ РЅР°РІРµРґРµРЅРѕ, СЃРєРѕСЂРёСЃС‚Р°Р№С‚РµСЃСЊ С€СѓРєР°С‡РµРј!") << "\n";
+        cout << "Р¤РѕРєСѓСЃСѓРІР°РЅРЅСЏ " << (GetIsFocused() ? "РІРёРєРѕРЅР°РЅРѕ!" :
+            "С‰Рµ РЅРµ РІРёРєРѕРЅР°РЅРѕ!") << "\n";
+        cout << "\n\nРљРћРњР•РќРўРђР : " << comment << "\n";
     }
 };
 
@@ -332,26 +332,26 @@ class WaterBottle
 {
 private:
 
-    string* brand;               // покажчик на бренд
-    string* producer;            // покажчик на завод-виробник
-    float* capacity;             // покажчик на об'єм бутеля
-    float* currentVolume;        // покажчик на поточний рівень води
-    string* expirationDate;      // покажчик на кінцеву дату споживання
-    string* mineralization;      // покажчик на мінералізацію води
-    string* material;            // покажчик на матеріал бутеля
-    bool isExpired = false;      // чи термін споживання закінчився?
-    bool isOpened = false;       // чи відкритий бутель?
-    bool isBeingPoured = false;  // чи наливається вода?
-    bool isWiped = false;        // чи бутель був протертий серветкою?
+    string* brand;               // РїРѕРєР°Р¶С‡РёРє РЅР° Р±СЂРµРЅРґ
+    string* producer;            // РїРѕРєР°Р¶С‡РёРє РЅР° Р·Р°РІРѕРґ-РІРёСЂРѕР±РЅРёРє
+    float* capacity;             // РїРѕРєР°Р¶С‡РёРє РЅР° РѕР±'С”Рј Р±СѓС‚РµР»СЏ
+    float* currentVolume;        // РїРѕРєР°Р¶С‡РёРє РЅР° РїРѕС‚РѕС‡РЅРёР№ СЂС–РІРµРЅСЊ РІРѕРґРё
+    string* expirationDate;      // РїРѕРєР°Р¶С‡РёРє РЅР° РєС–РЅС†РµРІСѓ РґР°С‚Сѓ СЃРїРѕР¶РёРІР°РЅРЅСЏ
+    string* mineralization;      // РїРѕРєР°Р¶С‡РёРє РЅР° РјС–РЅРµСЂР°Р»С–Р·Р°С†С–СЋ РІРѕРґРё
+    string* material;            // РїРѕРєР°Р¶С‡РёРє РЅР° РјР°С‚РµСЂС–Р°Р» Р±СѓС‚РµР»СЏ
+    bool isExpired = false;      // С‡Рё С‚РµСЂРјС–РЅ СЃРїРѕР¶РёРІР°РЅРЅСЏ Р·Р°РєС–РЅС‡РёРІСЃСЏ?
+    bool isOpened = false;       // С‡Рё РІС–РґРєСЂРёС‚РёР№ Р±СѓС‚РµР»СЊ?
+    bool isBeingPoured = false;  // С‡Рё РЅР°Р»РёРІР°С”С‚СЊСЃСЏ РІРѕРґР°?
+    bool isWiped = false;        // С‡Рё Р±СѓС‚РµР»СЊ Р±СѓРІ РїСЂРѕС‚РµСЂС‚РёР№ СЃРµСЂРІРµС‚РєРѕСЋ?
 
-    // Приватний метод ініціалізації для делегування
-    void InitWaterBottle(const string& brand = "Моршинська",
-        const string& producer = "Моршинський завод мінеральних вод \"Оскар\"",
+    // РџСЂРёРІР°С‚РЅРёР№ РјРµС‚РѕРґ С–РЅС–С†С–Р°Р»С–Р·Р°С†С–С— РґР»СЏ РґРµР»РµРіСѓРІР°РЅРЅСЏ
+    void InitWaterBottle(const string& brand = "РњРѕСЂС€РёРЅСЃСЊРєР°",
+        const string& producer = "РњРѕСЂС€РёРЅСЃСЊРєРёР№ Р·Р°РІРѕРґ РјС–РЅРµСЂР°Р»СЊРЅРёС… РІРѕРґ \"РћСЃРєР°СЂ\"",
         const float& capacity = 6.0f,
         const float& currentVolume = 6.0f,
         const string& expirationDate = "02.11.25",
-        const string& mineralization = "0,1-0,4 г/л",
-        const string& material = "Пластик")
+        const string& mineralization = "0,1-0,4 Рі/Р»",
+        const string& material = "РџР»Р°СЃС‚РёРє")
     {
         this->brand = new string(brand);
         this->producer = new string(producer);
@@ -369,14 +369,14 @@ private:
 
 public:
 
-    // Конструктор за замовчуванням
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј
     WaterBottle()
     {
         InitWaterBottle();
     }
 
 
-    // Конструктор із параметрами
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ С–Р· РїР°СЂР°РјРµС‚СЂР°РјРё
     WaterBottle(const string& brand, const string& producer,
         const float& capacity, const float& currentVolume,
         const string& expirationDate, const string& mineralization,
@@ -387,7 +387,7 @@ public:
     }
 
 
-    // Конструктор копіювання
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
     WaterBottle(const WaterBottle& other)
     {
         InitWaterBottle(*other.brand, *other.producer, *other.capacity,
@@ -400,7 +400,7 @@ public:
     }
 
 
-    // Деструктор
+    // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
     ~WaterBottle()
     {
         delete brand;
@@ -413,7 +413,7 @@ public:
     }
 
 
-    // Сеттери для покажчиків
+    // РЎРµС‚С‚РµСЂРё РґР»СЏ РїРѕРєР°Р¶С‡РёРєС–РІ
 
     void SetBrand(const string& brand)
     {
@@ -428,7 +428,7 @@ public:
     void SetCapacity(float capacity)
     {
         if (capacity < 1.0 || capacity > 25.0)
-            throw string("Об'єм бутеля має бути в межах 1 - 25 літрів!");
+            throw string("РћР±'С”Рј Р±СѓС‚РµР»СЏ РјР°С” Р±СѓС‚Рё РІ РјРµР¶Р°С… 1 - 25 Р»С–С‚СЂС–РІ!");
         *this->capacity = capacity;
         if (*this->currentVolume > *this->capacity)
             *this->currentVolume = *this->capacity;
@@ -437,8 +437,8 @@ public:
     void SetCurrentVolume(float currentVolume)
     {
         if (currentVolume < 0 || currentVolume > *this->capacity)
-            throw string("Поточний об'єм води в літрах має бути в межах "
-                "від 0 до максимальної ємності бутеля!");
+            throw string("РџРѕС‚РѕС‡РЅРёР№ РѕР±'С”Рј РІРѕРґРё РІ Р»С–С‚СЂР°С… РјР°С” Р±СѓС‚Рё РІ РјРµР¶Р°С… "
+                "РІС–Рґ 0 РґРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕС— С”РјРЅРѕСЃС‚С– Р±СѓС‚РµР»СЏ!");
         *this->currentVolume = currentVolume;
     }
 
@@ -446,8 +446,8 @@ public:
     {
         if (expirationDate.length() != 8 || expirationDate[2] != '.' ||
             expirationDate[5] != '.')
-            throw string("Дата має бути вказана щонайменше у форматі"
-                " ДД.ММ.РР та проходити повну валідацію!");
+            throw string("Р”Р°С‚Р° РјР°С” Р±СѓС‚Рё РІРєР°Р·Р°РЅР° С‰РѕРЅР°Р№РјРµРЅС€Рµ Сѓ С„РѕСЂРјР°С‚С–"
+                " Р”Р”.РњРњ.Р Р  С‚Р° РїСЂРѕС…РѕРґРёС‚Рё РїРѕРІРЅСѓ РІР°Р»С–РґР°С†С–СЋ!");
         *this->expirationDate = expirationDate;
     }
 
@@ -458,11 +458,11 @@ public:
 
     void SetMaterial(const string& material)
     {
-        if (material != "Пластик" && material != "пластик" &&
-            material != "Скло" && material != "скло" &&
-            material != "Нержавіюча сталь" && material != "нержавіюча сталь" &&
-            material != "Харчовий пластик" && material != "харчовий пластик")
-            throw string("Виберіть придатний матеріал для зберігання води!");
+        if (material != "РџР»Р°СЃС‚РёРє" && material != "РїР»Р°СЃС‚РёРє" &&
+            material != "РЎРєР»Рѕ" && material != "СЃРєР»Рѕ" &&
+            material != "РќРµСЂР¶Р°РІС–СЋС‡Р° СЃС‚Р°Р»СЊ" && material != "РЅРµСЂР¶Р°РІС–СЋС‡Р° СЃС‚Р°Р»СЊ" &&
+            material != "РҐР°СЂС‡РѕРІРёР№ РїР»Р°СЃС‚РёРє" && material != "С…Р°СЂС‡РѕРІРёР№ РїР»Р°СЃС‚РёРє")
+            throw string("Р’РёР±РµСЂС–С‚СЊ РїСЂРёРґР°С‚РЅРёР№ РјР°С‚РµСЂС–Р°Р» РґР»СЏ Р·Р±РµСЂС–РіР°РЅРЅСЏ РІРѕРґРё!");
         *this->material = material;
     }
 
@@ -488,7 +488,7 @@ public:
     }
 
 
-    // Геттери для покажчиків
+    // Р“РµС‚С‚РµСЂРё РґР»СЏ РїРѕРєР°Р¶С‡РёРєС–РІ
 
     string GetBrand() const { return *this->brand; }
 
@@ -513,77 +513,77 @@ public:
     bool GetIsWiped() const { return isWiped; }
 
 
-    // Метод для введення характеристик бутеля
+    // РњРµС‚РѕРґ РґР»СЏ РІРІРµРґРµРЅРЅСЏ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє Р±СѓС‚РµР»СЏ
     void InputBottleData()
     {
         system("cls");
-        cout << "\tАБСТРАГУВАННЯ: НЕМАЄ ВОДИ\n\n";
+        cout << "\tРђР‘РЎРўР РђР“РЈР’РђРќРќРЇ: РќР•РњРђР„ Р’РћР”Р\n\n";
 
         string input;
 
-        cout << "Введіть відомий бренд: ";
+        cout << "Р’РІРµРґС–С‚СЊ РІС–РґРѕРјРёР№ Р±СЂРµРЅРґ: ";
         getline(cin, input);
         if (!input.empty()) SetBrand(input);
 
-        cout << "Введіть завод-виробник: ";
+        cout << "Р’РІРµРґС–С‚СЊ Р·Р°РІРѕРґ-РІРёСЂРѕР±РЅРёРє: ";
         getline(cin, input);
         if (!input.empty()) SetProducer(input);
 
-        cout << "Введіть об'єм бутеля: ";
+        cout << "Р’РІРµРґС–С‚СЊ РѕР±'С”Рј Р±СѓС‚РµР»СЏ: ";
         cin >> *this->capacity;
         cin.ignore();
 
-        cout << "Введіть кінцеву дату споживання у форматі ЧЧ.ММ.РР: ";
+        cout << "Р’РІРµРґС–С‚СЊ РєС–РЅС†РµРІСѓ РґР°С‚Сѓ СЃРїРѕР¶РёРІР°РЅРЅСЏ Сѓ С„РѕСЂРјР°С‚С– Р§Р§.РњРњ.Р Р : ";
         getline(cin, input);
         if (!input.empty()) SetExpirationDate(input);
 
-        cout << "Визначте рівень мінералізації води: ";
+        cout << "Р’РёР·РЅР°С‡С‚Рµ СЂС–РІРµРЅСЊ РјС–РЅРµСЂР°Р»С–Р·Р°С†С–С— РІРѕРґРё: ";
         getline(cin, input);
         if (!input.empty()) SetMineralization(input);
 
-        cout << "Зазначте матеріал бутеля: ";
+        cout << "Р—Р°Р·РЅР°С‡С‚Рµ РјР°С‚РµСЂС–Р°Р» Р±СѓС‚РµР»СЏ: ";
         getline(cin, input);
         if (!input.empty()) SetMaterial(input);
     }
 
 
-    // Метод для перевірки терміну придатності
+    // РњРµС‚РѕРґ РґР»СЏ РїРµСЂРµРІС–СЂРєРё С‚РµСЂРјС–РЅСѓ РїСЂРёРґР°С‚РЅРѕСЃС‚С–
     void CheckExpiration()
     {
-        // Отримуємо поточний час у секундах з 1970-01-01 (epoch time)
+        // РћС‚СЂРёРјСѓС”РјРѕ РїРѕС‚РѕС‡РЅРёР№ С‡Р°СЃ Сѓ СЃРµРєСѓРЅРґР°С… Р· 1970-01-01 (epoch time)
         time_t now = time(nullptr);
         // https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/time-time32-time64?view=msvc-170
-        // Перетворюємо часовий штамп у локальний час
+        // РџРµСЂРµС‚РІРѕСЂСЋС”РјРѕ С‡Р°СЃРѕРІРёР№ С€С‚Р°РјРї Сѓ Р»РѕРєР°Р»СЊРЅРёР№ С‡Р°СЃ
         struct tm localTime;
         localtime_s(&localTime, &now);
         // https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/localtime-s-localtime32-s-localtime64-s?view=msvc-170
 
-        // Доступ до компонентів дати - поточні день, місяць, рік:
+        // Р”РѕСЃС‚СѓРї РґРѕ РєРѕРјРїРѕРЅРµРЅС‚С–РІ РґР°С‚Рё - РїРѕС‚РѕС‡РЅС– РґРµРЅСЊ, РјС–СЃСЏС†СЊ, СЂС–Рє:
         int todayDay = localTime.tm_mday;
-        int todayMonth = localTime.tm_mon + 1; // tm_mon починається з 0
-        int todayYear = localTime.tm_year + 1900; // відлік з 1900
+        int todayMonth = localTime.tm_mon + 1; // tm_mon РїРѕС‡РёРЅР°С”С‚СЊСЃСЏ Р· 0
+        int todayYear = localTime.tm_year + 1900; // РІС–РґР»С–Рє Р· 1900
 
-        // Перетворюємо кінцеву дату споживання, використовуючи метод для
-        // отримання підрядка та функцію для перетворення рядка на число
+        // РџРµСЂРµС‚РІРѕСЂСЋС”РјРѕ РєС–РЅС†РµРІСѓ РґР°С‚Сѓ СЃРїРѕР¶РёРІР°РЅРЅСЏ, РІРёРєРѕСЂРёСЃС‚РѕРІСѓСЋС‡Рё РјРµС‚РѕРґ РґР»СЏ
+        // РѕС‚СЂРёРјР°РЅРЅСЏ РїС–РґСЂСЏРґРєР° С‚Р° С„СѓРЅРєС†С–СЋ РґР»СЏ РїРµСЂРµС‚РІРѕСЂРµРЅРЅСЏ СЂСЏРґРєР° РЅР° С‡РёСЃР»Рѕ
         int day = stoi(expirationDate->substr(0, 2));
         int month = stoi(expirationDate->substr(3, 2));
         int year = stoi(expirationDate->substr(6, 2)) + 2000;
 
-        // Оновлюємо булеву змінну "прострочено"
+        // РћРЅРѕРІР»СЋС”РјРѕ Р±СѓР»РµРІСѓ Р·РјС–РЅРЅСѓ "РїСЂРѕСЃС‚СЂРѕС‡РµРЅРѕ"
         this->isExpired = year < todayYear ||
             (year == todayYear && month < todayMonth) ||
             (year == todayYear && month == todayMonth && day < todayDay + 2);
     }
 
 
-    // Метод для відкривання бутеля
+    // РњРµС‚РѕРґ РґР»СЏ РІС–РґРєСЂРёРІР°РЅРЅСЏ Р±СѓС‚РµР»СЏ
     void OpenBottle()
     {
         if (!this->isExpired) this->isOpened = true;
     }
 
 
-    // Метод для закриття бутеля
+    // РњРµС‚РѕРґ РґР»СЏ Р·Р°РєСЂРёС‚С‚СЏ Р±СѓС‚РµР»СЏ
     void CloseBottle()
     {
         this->isBeingPoured = false;
@@ -591,7 +591,7 @@ public:
     }
 
 
-    // Метод для наливання води (по 3 л за раз)
+    // РњРµС‚РѕРґ РґР»СЏ РЅР°Р»РёРІР°РЅРЅСЏ РІРѕРґРё (РїРѕ 3 Р» Р·Р° СЂР°Р·)
     void PourWater()
     {
         if (this->isOpened && *this->currentVolume >= 3.0)
@@ -602,38 +602,38 @@ public:
         else
         {
             this->isBeingPoured = false;
-            cout << "Води більше немає!" << "\n";
+            cout << "Р’РѕРґРё Р±С–Р»СЊС€Рµ РЅРµРјР°С”!" << "\n";
         }
     }
 
 
-    // Метод для протирання бутеля серветкою
+    // РњРµС‚РѕРґ РґР»СЏ РїСЂРѕС‚РёСЂР°РЅРЅСЏ Р±СѓС‚РµР»СЏ СЃРµСЂРІРµС‚РєРѕСЋ
     void WipeBottle()
     {
         this->isWiped = true;
     }
 
 
-    // Метод для виведення інформації про бутель
+    // РњРµС‚РѕРґ РґР»СЏ РІРёРІРµРґРµРЅРЅСЏ С–РЅС„РѕСЂРјР°С†С–С— РїСЂРѕ Р±СѓС‚РµР»СЊ
     void PrintInfo(const string& comment) const
     {
         system("cls");
-        cout << "\tСТАН БУТЕЛЯ ВОДИ\n\n";
-        cout << "Бренд води для щоденного вживання: " << *this->brand << "\n";
-        cout << "Виробник: " << *this->producer << "\n";
-        cout << "Об'єм: " << *this->capacity << "\n";
-        cout << "Вжити до: " << *this->expirationDate << "\n";
-        cout << "Мінералізація води: " << *this->mineralization << "\n";
-        cout << "Матеріал бутеля: " << *this->material << "\n";
-        cout << "\nБутель " << (this->isWiped ?
-            "протертий вологою серветкою!" : "ще не протертий") << "\n";
-        cout << (this->isExpired ? "Термін споживання закінчився!" :
-            "Термін споживання ще не закінчився") << "\n";
-        cout << "Бутель " << (this->isOpened ? "відкритий!" :
-            "закритий") << "\n";
-        cout << "Поточний рівень води: " << *this->currentVolume << " л\n";
-        cout << (this->isBeingPoured ? "Наливаємо воду!" : "") << "\n";
-        cout << "\nКОМЕНТАР: " << comment << "\n";
+        cout << "\tРЎРўРђРќ Р‘РЈРўР•Р›РЇ Р’РћР”Р\n\n";
+        cout << "Р‘СЂРµРЅРґ РІРѕРґРё РґР»СЏ С‰РѕРґРµРЅРЅРѕРіРѕ РІР¶РёРІР°РЅРЅСЏ: " << *this->brand << "\n";
+        cout << "Р’РёСЂРѕР±РЅРёРє: " << *this->producer << "\n";
+        cout << "РћР±'С”Рј: " << *this->capacity << "\n";
+        cout << "Р’Р¶РёС‚Рё РґРѕ: " << *this->expirationDate << "\n";
+        cout << "РњС–РЅРµСЂР°Р»С–Р·Р°С†С–СЏ РІРѕРґРё: " << *this->mineralization << "\n";
+        cout << "РњР°С‚РµСЂС–Р°Р» Р±СѓС‚РµР»СЏ: " << *this->material << "\n";
+        cout << "\nР‘СѓС‚РµР»СЊ " << (this->isWiped ?
+            "РїСЂРѕС‚РµСЂС‚РёР№ РІРѕР»РѕРіРѕСЋ СЃРµСЂРІРµС‚РєРѕСЋ!" : "С‰Рµ РЅРµ РїСЂРѕС‚РµСЂС‚РёР№") << "\n";
+        cout << (this->isExpired ? "РўРµСЂРјС–РЅ СЃРїРѕР¶РёРІР°РЅРЅСЏ Р·Р°РєС–РЅС‡РёРІСЃСЏ!" :
+            "РўРµСЂРјС–РЅ СЃРїРѕР¶РёРІР°РЅРЅСЏ С‰Рµ РЅРµ Р·Р°РєС–РЅС‡РёРІСЃСЏ") << "\n";
+        cout << "Р‘СѓС‚РµР»СЊ " << (this->isOpened ? "РІС–РґРєСЂРёС‚РёР№!" :
+            "Р·Р°РєСЂРёС‚РёР№") << "\n";
+        cout << "РџРѕС‚РѕС‡РЅРёР№ СЂС–РІРµРЅСЊ РІРѕРґРё: " << *this->currentVolume << " Р»\n";
+        cout << (this->isBeingPoured ? "РќР°Р»РёРІР°С”РјРѕ РІРѕРґСѓ!" : "") << "\n";
+        cout << "\nРљРћРњР•РќРўРђР : " << comment << "\n";
     }
 };
 
@@ -645,7 +645,7 @@ public:
     static void DisplayTelescopeFields(const Telescope* telescope)
     {
         if (!telescope) {
-            cout << "Об'єкт Telescope не знайдено за вказаною адресою!\n";
+            cout << "РћР±'С”РєС‚ Telescope РЅРµ Р·РЅР°Р№РґРµРЅРѕ Р·Р° РІРєР°Р·Р°РЅРѕСЋ Р°РґСЂРµСЃРѕСЋ!\n";
             return;
         }
 
@@ -678,7 +678,7 @@ public:
     static void DisplayWaterBottleFields(const WaterBottle* waterbottle)
     {
         if (!waterbottle) {
-            cout << "Об'єкт WaterBottle не знайдено за вказаною адресою!\n";
+            cout << "РћР±'С”РєС‚ WaterBottle РЅРµ Р·РЅР°Р№РґРµРЅРѕ Р·Р° РІРєР°Р·Р°РЅРѕСЋ Р°РґСЂРµСЃРѕСЋ!\n";
             return;
         }
 
@@ -715,44 +715,44 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    // Використання конструктора за замовчуванням для Telescope
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј РґР»СЏ Telescope
     Telescope myTelescope;
     myTelescope.InputTelescopeData();
-    myTelescope.PrintInfo("Підготовка телескопа"); Sleep(20000);
-    myTelescope.AimAtObject("Місяць");
-    myTelescope.PrintInfo("Захоплення в поле зору"); Sleep(20000);
+    myTelescope.PrintInfo("РџС–РґРіРѕС‚РѕРІРєР° С‚РµР»РµСЃРєРѕРїР°"); Sleep(20000);
+    myTelescope.AimAtObject("РњС–СЃСЏС†СЊ");
+    myTelescope.PrintInfo("Р—Р°С…РѕРїР»РµРЅРЅСЏ РІ РїРѕР»Рµ Р·РѕСЂСѓ"); Sleep(20000);
     myTelescope.FocusTelescope();
-    myTelescope.PrintInfo("Спостереження з малим збільшенням"); Sleep(20000);
-    myTelescope.ChangeEyepiece("4 мм (175х), 1,25\"");
-    myTelescope.SetFilter("Місячний фільтр");
-    myTelescope.PrintInfo("Установлення аксесуарів"); Sleep(20000);
+    myTelescope.PrintInfo("РЎРїРѕСЃС‚РµСЂРµР¶РµРЅРЅСЏ Р· РјР°Р»РёРј Р·Р±С–Р»СЊС€РµРЅРЅСЏРј"); Sleep(20000);
+    myTelescope.ChangeEyepiece("4 РјРј (175С…), 1,25\"");
+    myTelescope.SetFilter("РњС–СЃСЏС‡РЅРёР№ С„С–Р»СЊС‚СЂ");
+    myTelescope.PrintInfo("РЈСЃС‚Р°РЅРѕРІР»РµРЅРЅСЏ Р°РєСЃРµСЃСѓР°СЂС–РІ"); Sleep(20000);
     myTelescope.FocusTelescope();
-    myTelescope.PrintInfo("Спостереження з великим збільшенням"); Sleep(30000);
+    myTelescope.PrintInfo("РЎРїРѕСЃС‚РµСЂРµР¶РµРЅРЅСЏ Р· РІРµР»РёРєРёРј Р·Р±С–Р»СЊС€РµРЅРЅСЏРј"); Sleep(30000);
 
-    // Використання сеттерів для Telescope
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ СЃРµС‚С‚РµСЂС–РІ РґР»СЏ Telescope
     Telescope newTelescope;
     try {
         newTelescope.SetBrand("Celestron");
         newTelescope.SetModel("AstroMaster 130");
-        newTelescope.SetOpticalDesign("Рефлектор Ньютона");
-        newTelescope.SetAperture("130 мм");
-        newTelescope.SetFocalLength("750 мм");
-        newTelescope.SetMountType("Екваторіальне з автостеженням");
-        newTelescope.SetEyepiece("Стандартний окуляр 10 мм");
-        newTelescope.SetterFilter("Світло-жовтий");
+        newTelescope.SetOpticalDesign("Р РµС„Р»РµРєС‚РѕСЂ РќСЊСЋС‚РѕРЅР°");
+        newTelescope.SetAperture("130 РјРј");
+        newTelescope.SetFocalLength("750 РјРј");
+        newTelescope.SetMountType("Р•РєРІР°С‚РѕСЂС–Р°Р»СЊРЅРµ Р· Р°РІС‚РѕСЃС‚РµР¶РµРЅРЅСЏРј");
+        newTelescope.SetEyepiece("РЎС‚Р°РЅРґР°СЂС‚РЅРёР№ РѕРєСѓР»СЏСЂ 10 РјРј");
+        newTelescope.SetterFilter("РЎРІС–С‚Р»Рѕ-Р¶РѕРІС‚РёР№");
         newTelescope.SetIsAimed();
         newTelescope.SetIsFocused();
-        newTelescope.SetSkyObject("Місяць біля Сатурна, Нептуна, Урана і "
-            "Плеяд");
-        newTelescope.PrintInfo("Встановлено телескоп");
+        newTelescope.SetSkyObject("РњС–СЃСЏС†СЊ Р±С–Р»СЏ РЎР°С‚СѓСЂРЅР°, РќРµРїС‚СѓРЅР°, РЈСЂР°РЅР° С– "
+            "РџР»РµСЏРґ");
+        newTelescope.PrintInfo("Р’СЃС‚Р°РЅРѕРІР»РµРЅРѕ С‚РµР»РµСЃРєРѕРї");
         GetterShowCaseTask::DisplayTelescopeFields(&newTelescope);
         Sleep(15000);
         system("cls");
 
         newTelescope.SetIsAimed(false);
         newTelescope.SetIsFocused(false);
-        newTelescope.SetFilter("Сонячний");
-        newTelescope.SetSkyObject("Сонце");
+        newTelescope.SetFilter("РЎРѕРЅСЏС‡РЅРёР№");
+        newTelescope.SetSkyObject("РЎРѕРЅС†Рµ");
         newTelescope.FocusTelescope();
         newTelescope.PrintInfo("DANGER");
         GetterShowCaseTask::DisplayTelescopeFields(&newTelescope);
@@ -762,13 +762,13 @@ int main()
         cerr << "\n" << message << "\n";
     }
 
-    // Використання конструктора з параметрами для Telescope
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° Р· РїР°СЂР°РјРµС‚СЂР°РјРё РґР»СЏ Telescope
     try {
         Telescope customTelescope("Celestron", "AstroMaster 130",
-            "Рефлектор Ньютона", "130 мм", "750 мм",
-            "Екваторіальне з автостеженням", "Стандартний окуляр 10 мм",
-            "Світло-жовтий", "Місяць біля Сатурна, Нептуна, Урана і Плеяд");
-        customTelescope.PrintInfo("Створено телескоп із заданими параметрами");
+            "Р РµС„Р»РµРєС‚РѕСЂ РќСЊСЋС‚РѕРЅР°", "130 РјРј", "750 РјРј",
+            "Р•РєРІР°С‚РѕСЂС–Р°Р»СЊРЅРµ Р· Р°РІС‚РѕСЃС‚РµР¶РµРЅРЅСЏРј", "РЎС‚Р°РЅРґР°СЂС‚РЅРёР№ РѕРєСѓР»СЏСЂ 10 РјРј",
+            "РЎРІС–С‚Р»Рѕ-Р¶РѕРІС‚РёР№", "РњС–СЃСЏС†СЊ Р±С–Р»СЏ РЎР°С‚СѓСЂРЅР°, РќРµРїС‚СѓРЅР°, РЈСЂР°РЅР° С– РџР»РµСЏРґ");
+        customTelescope.PrintInfo("РЎС‚РІРѕСЂРµРЅРѕ С‚РµР»РµСЃРєРѕРї С–Р· Р·Р°РґР°РЅРёРјРё РїР°СЂР°РјРµС‚СЂР°РјРё");
         GetterShowCaseTask::DisplayTelescopeFields(&customTelescope);
         Sleep(15000);
         system("cls");
@@ -777,11 +777,11 @@ int main()
         cerr << "\n" << message << "\n";
     }
 
-    // Використання конструктора копіювання для Telescope
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєРѕРїС–СЋРІР°РЅРЅСЏ РґР»СЏ Telescope
     try {
         Telescope copiedTelescope(myTelescope);
-        copiedTelescope.SetSkyObject("Марс");
-        copiedTelescope.PrintInfo("Скопійовано телескоп");
+        copiedTelescope.SetSkyObject("РњР°СЂСЃ");
+        copiedTelescope.PrintInfo("РЎРєРѕРїС–Р№РѕРІР°РЅРѕ С‚РµР»РµСЃРєРѕРї");
         GetterShowCaseTask::DisplayTelescopeFields(&copiedTelescope);
         Sleep(15000);
         system("cls");
@@ -791,34 +791,34 @@ int main()
     }
 
 
-    // Використання конструктора за замовчуванням для WaterBottle
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° Р·Р° Р·Р°РјРѕРІС‡СѓРІР°РЅРЅСЏРј РґР»СЏ WaterBottle
     WaterBottle oneBottle;
     oneBottle.InputBottleData();
-    oneBottle.PrintInfo("Стоїть бутель"); Sleep(10000);
+    oneBottle.PrintInfo("РЎС‚РѕС—С‚СЊ Р±СѓС‚РµР»СЊ"); Sleep(10000);
     oneBottle.CheckExpiration();
-    oneBottle.PrintInfo("Перевіримо дату"); Sleep(10000);
+    oneBottle.PrintInfo("РџРµСЂРµРІС–СЂРёРјРѕ РґР°С‚Сѓ"); Sleep(10000);
     oneBottle.WipeBottle();
-    oneBottle.PrintInfo("Треба протерти від пилу"); Sleep(10000);
+    oneBottle.PrintInfo("РўСЂРµР±Р° РїСЂРѕС‚РµСЂС‚Рё РІС–Рґ РїРёР»Сѓ"); Sleep(10000);
     oneBottle.OpenBottle();
-    oneBottle.PrintInfo("Відкриваємо бутель"); Sleep(10000);
+    oneBottle.PrintInfo("Р’С–РґРєСЂРёРІР°С”РјРѕ Р±СѓС‚РµР»СЊ"); Sleep(10000);
     oneBottle.PourWater();
-    oneBottle.PrintInfo("Наливаємо 3 л"); Sleep(10000);
+    oneBottle.PrintInfo("РќР°Р»РёРІР°С”РјРѕ 3 Р»"); Sleep(10000);
     oneBottle.CloseBottle();
-    oneBottle.PrintInfo("Закриваємо кришкою"); Sleep(10000);
+    oneBottle.PrintInfo("Р—Р°РєСЂРёРІР°С”РјРѕ РєСЂРёС€РєРѕСЋ"); Sleep(10000);
     oneBottle.OpenBottle();
-    oneBottle.PrintInfo("Відкриваємо бутель"); Sleep(10000);
+    oneBottle.PrintInfo("Р’С–РґРєСЂРёРІР°С”РјРѕ Р±СѓС‚РµР»СЊ"); Sleep(10000);
     oneBottle.PourWater();
-    oneBottle.PrintInfo("Наливаємо 3 л"); Sleep(10000);
+    oneBottle.PrintInfo("РќР°Р»РёРІР°С”РјРѕ 3 Р»"); Sleep(10000);
     oneBottle.CloseBottle();
-    oneBottle.PrintInfo("Закриваємо кришкою"); Sleep(10000);
+    oneBottle.PrintInfo("Р—Р°РєСЂРёРІР°С”РјРѕ РєСЂРёС€РєРѕСЋ"); Sleep(10000);
     oneBottle.OpenBottle();
-    oneBottle.PrintInfo("Відкриваємо бутель"); Sleep(10000);
+    oneBottle.PrintInfo("Р’С–РґРєСЂРёРІР°С”РјРѕ Р±СѓС‚РµР»СЊ"); Sleep(10000);
     oneBottle.PourWater();
-    oneBottle.PrintInfo("А бутель спорожнів"); Sleep(10000);
+    oneBottle.PrintInfo("Рђ Р±СѓС‚РµР»СЊ СЃРїРѕСЂРѕР¶РЅС–РІ"); Sleep(10000);
     oneBottle.CloseBottle();
-    oneBottle.PrintInfo("Закриваємо кришкою"); Sleep(30000);
+    oneBottle.PrintInfo("Р—Р°РєСЂРёРІР°С”РјРѕ РєСЂРёС€РєРѕСЋ"); Sleep(30000);
 
-    // Використання сеттерів для WaterBottle
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ СЃРµС‚С‚РµСЂС–РІ РґР»СЏ WaterBottle
     WaterBottle anotherBottle;
     try {
         GetterShowCaseTask::DisplayWaterBottleFields(&anotherBottle);
@@ -826,24 +826,24 @@ int main()
         system("cls");
 
         anotherBottle.SetBrand("AquaLife");
-        anotherBottle.SetProducer("Миргородський завод мінеральних вод");
+        anotherBottle.SetProducer("РњРёСЂРіРѕСЂРѕРґСЃСЊРєРёР№ Р·Р°РІРѕРґ РјС–РЅРµСЂР°Р»СЊРЅРёС… РІРѕРґ");
         anotherBottle.SetCapacity(5.0f);
         anotherBottle.SetCurrentVolume(5.0f);
         anotherBottle.SetExpirationDate("05.06.26");
-        anotherBottle.SetMineralization("300-500 мг/л");
-        anotherBottle.SetMaterial("Харчовий пластик");
+        anotherBottle.SetMineralization("300-500 РјРі/Р»");
+        anotherBottle.SetMaterial("РҐР°СЂС‡РѕРІРёР№ РїР»Р°СЃС‚РёРє");
         anotherBottle.SetIsExpired(false);
         anotherBottle.SetIsOpened(false);
         anotherBottle.SetIsBeingPoured(false);
         anotherBottle.SetIsWiped(false);
-        anotherBottle.PrintInfo("Принесли з магазину");
+        anotherBottle.PrintInfo("РџСЂРёРЅРµСЃР»Рё Р· РјР°РіР°Р·РёРЅСѓ");
         GetterShowCaseTask::DisplayWaterBottleFields(&anotherBottle);
         Sleep(20000);
         system("cls");
 
         anotherBottle.CheckExpiration();
         anotherBottle.WipeBottle();
-        anotherBottle.PrintInfo("Ще раз перевірили дату, протремо");
+        anotherBottle.PrintInfo("Р©Рµ СЂР°Р· РїРµСЂРµРІС–СЂРёР»Рё РґР°С‚Сѓ, РїСЂРѕС‚СЂРµРјРѕ");
         GetterShowCaseTask::DisplayWaterBottleFields(&anotherBottle);
         Sleep(20000);
         system("cls");
@@ -852,12 +852,12 @@ int main()
         cerr << "\n" << message << "\n";
     }
 
-    // Використання конструктора з параметрами для WaterBottle
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° Р· РїР°СЂР°РјРµС‚СЂР°РјРё РґР»СЏ WaterBottle
     try {
         WaterBottle customBottle("AquaLife",
-            "Миргородський завод мінеральних вод", 5.0f, 5.0f,
-            "05.06.26", "300-500 мг/л", "Харчовий пластик");
-        customBottle.PrintInfo("Створено бутель із заданими параметрами");
+            "РњРёСЂРіРѕСЂРѕРґСЃСЊРєРёР№ Р·Р°РІРѕРґ РјС–РЅРµСЂР°Р»СЊРЅРёС… РІРѕРґ", 5.0f, 5.0f,
+            "05.06.26", "300-500 РјРі/Р»", "РҐР°СЂС‡РѕРІРёР№ РїР»Р°СЃС‚РёРє");
+        customBottle.PrintInfo("РЎС‚РІРѕСЂРµРЅРѕ Р±СѓС‚РµР»СЊ С–Р· Р·Р°РґР°РЅРёРјРё РїР°СЂР°РјРµС‚СЂР°РјРё");
         GetterShowCaseTask::DisplayWaterBottleFields(&customBottle);
         Sleep(15000);
         system("cls");
@@ -866,7 +866,7 @@ int main()
         customBottle.WipeBottle();
         customBottle.OpenBottle();
         customBottle.PourWater();
-        customBottle.PrintInfo("Наливаємо воду з нового бутеля");
+        customBottle.PrintInfo("РќР°Р»РёРІР°С”РјРѕ РІРѕРґСѓ Р· РЅРѕРІРѕРіРѕ Р±СѓС‚РµР»СЏ");
         GetterShowCaseTask::DisplayWaterBottleFields(&customBottle);
         Sleep(15000);
         system("cls");
@@ -875,11 +875,11 @@ int main()
         cerr << "\n" << message << "\n";
     }
 
-    // Використання конструктора копіювання для WaterBottle
+    // Р’РёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєРѕРїС–СЋРІР°РЅРЅСЏ РґР»СЏ WaterBottle
     try {
         WaterBottle copiedBottle(oneBottle);
-        copiedBottle.SetBrand("Пізно пити Боржомі");
-        copiedBottle.PrintInfo("Скопійовано бутель і змінено бренд");
+        copiedBottle.SetBrand("РџС–Р·РЅРѕ РїРёС‚Рё Р‘РѕСЂР¶РѕРјС–");
+        copiedBottle.PrintInfo("РЎРєРѕРїС–Р№РѕРІР°РЅРѕ Р±СѓС‚РµР»СЊ С– Р·РјС–РЅРµРЅРѕ Р±СЂРµРЅРґ");
         GetterShowCaseTask::DisplayWaterBottleFields(&copiedBottle);
         Sleep(15000);
         system("cls");
